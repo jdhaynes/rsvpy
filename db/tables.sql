@@ -1,7 +1,9 @@
-DROP TABLE rsvp_attendee;
-DROP TABLE rsvp_event;
-DROP TABLE rsvp_response;
-DROP TABLE rsvp_user;
+DROP TABLE IF EXISTS rsvp_attendee;
+DROP TABLE IF EXISTS rsvp_event;
+DROP TABLE IF EXISTS rsvp_response;
+DROP TABLE IF EXISTS rsvp_user;
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE rsvp_user (
     id                  SERIAL PRIMARY KEY,
@@ -32,5 +34,6 @@ CREATE TABLE rsvp_attendee (
     first_name          VARCHAR(20) NOT NULL,
     last_name           VARCHAR(20) NOT NULL,
     email               VARCHAR(50),
+    attendee_secret     UUID NOT NULL DEFAULT uuid_generate_v4(),
     response_id         BIGINT NOT NULL REFERENCES rsvp_response(id)
 );
