@@ -6,8 +6,8 @@
 #########################################################################
 
 export FLASK_CONFIG=dev
-export FLASK_APP=main.py
-export VENV_DIR=../../venv
+export FLASK_APP=run.py
+export VENV_DIR=venv
  
 # Run Flask dev server inside virtual env.
 if [ -d "$VENV_DIR" ]; 
