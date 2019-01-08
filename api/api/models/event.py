@@ -2,6 +2,7 @@ from sqlalchemy import Column, String, Integer, DateTime, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from attendee import Attendee
+from user import User
 
 Base = declarative_base()
 
@@ -19,6 +20,6 @@ class Event(Base):
 
     # Relationships.
     attendees = relationship(Attendee, primaryjoin=(id==Attendee.event_id), back_populates=Attendee.event)
-    
+    owner = relationship(User, primaryjoin=(owner_id==User.id), back_populates=User.events)
     
 
