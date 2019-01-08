@@ -38,5 +38,6 @@ CREATE TABLE rsvp_attendee (
     last_name           VARCHAR(20) NOT NULL,
     email               VARCHAR(50),
     attendee_secret     UUID NOT NULL DEFAULT uuid_generate_v4(),
+    event_id            BIGINT NOT NULL REFERENCES rsvp_event(id),
     response_id         BIGINT NOT NULL REFERENCES rsvp_response(id)
 );
