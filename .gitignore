@@ -1,6 +1,9 @@
 # Virtual environments #
 **venv*/
 
+# MacOS #
+.DS_STORE
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
